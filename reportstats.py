@@ -46,11 +46,19 @@ class ReportStats(threading.Thread):
         self._gui_alpha = config.OPTIONS_OBJECT.Get("GuiAlpha", 250)
 
     def run(self):
-        url = "http://pyspy.pythonanywhere.com/add_record/"
+        url = "https://pyspy.freeside.ru/add_record/"
         headers = {
             "Accept-Encoding": "gzip",
-            "User-Agent": "PySpy, Author: White Russsian, https://github.com/WhiteRusssian/PySpy"
+            "User-Agent": "PySpy, Author: White Russsian, https://github.com/WhiteRusssian/PySpy(FREESIDE)"
             }
+        import json
+
+#        data = {}
+#        data['uuid'] = self._uuid
+#        json_data = json.dumps(data)
+
+
+        data = {"uuid": self._uuid, "version": self._version }
         payload = {
             "uuid": self._uuid,
             "version": self._version,
@@ -62,9 +70,11 @@ class ReportStats(threading.Thread):
             "ig_factions": self._ig_factions,
             "gui_alpha": self._gui_alpha
             }
+#        Logger.debug("data: " + payload.str)
 
         try:
-            r = requests.get(url, headers=headers, params=payload)
+#            r = requests.get(url, headers=headers, params=payload)
+             r = requests.post(url, headers=headers, json=payload)
         except requests.exceptions.ConnectionError:
             Logger.info("No network connection.", exc_info=True)
             statusmsg.push_status(

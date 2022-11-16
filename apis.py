@@ -161,10 +161,10 @@ def post_proprietary_db(character_ids):
     :param `character_ids`: List or tuple of character ids as integers.
     :return: JSON dictionary containing certain statistics for each id.
     '''
-    url = "http://pyspy.pythonanywhere.com" + "/character_intel/" + "v1/"
+    url = "https://pyspy.freeside.ru" + "/character_intel/" + "v1/"
     headers = {
         "Accept-Encoding": "gzip",
-        "User-Agent": "PySpy, Author: White Russsian, https://github.com/WhiteRusssian/PySpy"
+        "User-Agent": "PySpy, Author: White Russsian, https://github.com/WhiteRusssian/PySpy(FREESIDE)"
         }
     # Character_ids is a list of tuples, which needs to be converted to dict
     # with list as value.
@@ -179,7 +179,9 @@ def post_proprietary_db(character_ids):
         time.sleep(5)
         return "network_error"
     if r.status_code != 200:
-        server_msg = json.loads(r.text)["error"]
+# Our server doesnt forming errors here
+#        server_msg = json.loads(r.text)["error"]
+        server_msg = "something wrong with a proprietary server..."
         Logger.info(
             "PySpy server returned error code: " +
             str(r.status_code) + ", saying: " + server_msg, exc_info=True
@@ -188,6 +190,9 @@ def post_proprietary_db(character_ids):
             "PYSPY SERVER ERROR: " + str(r.status_code) + " (" + server_msg + ")"
             )
         return "server_error"
+#    Logger.info("hello:")
+#    Logger.info(type(r.json))
+#    Logger.info(r.json)
     return r.json()
 
 

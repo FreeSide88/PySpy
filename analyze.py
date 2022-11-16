@@ -237,9 +237,16 @@ def get_character_intel(conn, cur):
     :param `cur`: SQLite3 cursor object.
     '''
     char_ids = cur.execute("SELECT char_id FROM characters").fetchall()
-    char_intel = apis.post_proprietary_db(char_ids)
+    str = " ".join(["%s" % x for x in char_ids])
+    char_intel = apis.post_proprietary_db(str)
     records = ()
+    Logger.debug(type(char_intel))
+    Logger.debug(char_intel)
+    test = json.dumps(char_intel)
     for r in char_intel:
+        Logger.debug("This is in cycle:   ")
+        Logger.debug(type(r))
+        Logger.debug(r)
         char_id = r["character_id"]
         last_loss_date = r["last_loss_date"] if r["last_loss_date"] is not None else 0
         last_kill_date = r["last_kill_date"] if r["last_kill_date"] is not None else 0

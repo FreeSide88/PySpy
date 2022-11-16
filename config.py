@@ -13,6 +13,7 @@ import uuid
 
 import requests
 import wx  # required for colour codes in DARK_MODE
+import re # for wxPython version dentification
 
 import optstore
 # cSpell Checker - Correct Words****************************************
@@ -34,6 +35,9 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+# Identify wxPython version (not wxWidgets version).
+wx_major, wx_minor, wx_rev = \
+        map(int, re.match(r"([0-9]+)\.([0-9]+)(?:\.([0-9]+))", wx.__version__).groups())
 
 # If application is frozen executable
 if getattr(sys, 'frozen', False):
@@ -76,8 +80,10 @@ DB_FILE = os.path.join(PREF_PATH, "pyspy.sqlite3")
 OPTIONS_OBJECT = optstore.PersistentOptions(OPTIONS_FILE)
 
 # Read current version from VERSION file
-with open(resource_path('VERSION'), 'r') as ver_file:
-    CURRENT_VER = ver_file.read().replace('\n', '')
+#with open(resource_path('VERSION'), 'r') as ver_file:
+#    CURRENT_VER = ver_file.read().replace('\n', '')
+
+CURRENT_VER = "v0.5.2"
 
 # Clean up old GUI_CFG_FILES and OPTIONS_OBJECT keys
 if os.path.isfile(GUI_CFG_FILE) and not os.path.isfile(OPTIONS_FILE):

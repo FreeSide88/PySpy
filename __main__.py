@@ -37,6 +37,7 @@ def watch_clpbd():
     recent_value = None
     while True:
         clipboard = pyperclip.paste()
+#        print ("keycode: " + str(self.event.GetKeyCode()))
         if clipboard != recent_value:
             char_names = clipboard.splitlines()
             for name in char_names:

@@ -64,8 +64,8 @@ class Frame(wx.Frame):
             [11, "Losses", wx.ALIGN_RIGHT, 50, True, True, "&Losses\tCTRL+ALT+L", 13],
             [12, "Last Wk", wx.ALIGN_RIGHT, 50, True, True, "Last &Wk\tCTRL+ALT+W", 9],
             [13, "Solo", wx.ALIGN_RIGHT, 50, True, False, "S&olo\tCTRL+ALT+O", 14],
-            [14, "BLOPS", wx.ALIGN_RIGHT, 50, True, False, "&BLOPS\tCTRL+ALT+B", 11],
-            [15, "HICs", wx.ALIGN_RIGHT, 50, True, False, "&HICs\tCTRL+ALT+H", 12],
+            [14, "BLOPS Kills", wx.ALIGN_RIGHT, 50, True, False, "&BLOPS\tCTRL+ALT+B", 11],
+            [15, "HICs Losses", wx.ALIGN_RIGHT, 50, True, False, "&HICs\tCTRL+ALT+H", 12],
             [16, "Last Loss", wx.ALIGN_RIGHT, 60, True, True, "Days since last Loss\tCTRL+ALT+[", 16],
             [17, "Last Kill", wx.ALIGN_RIGHT, 60, True, True, "Days since last Kill\tCTRL+ALT+]", 17],
             [18, "Avg. Attackers", wx.ALIGN_RIGHT, 100, True, True, "&Average Attackers\tCTRL+ALT+A", 18],
@@ -356,8 +356,16 @@ class Frame(wx.Frame):
         sizer_bottom.Add(self.status_label, 1, wx.ALIGN_CENTER_VERTICAL, 0)
         static_line = wx.StaticLine(self, wx.ID_ANY, style=wx.LI_VERTICAL)
         sizer_bottom.Add(static_line, 0, wx.EXPAND, 0)
-        sizer_bottom.Add(self.alpha_slider, 0, wx.ALIGN_RIGHT, 0)
-        sizer_main.Add(sizer_bottom, 0, wx.ALIGN_BOTTOM | wx.ALL | wx.EXPAND, 1)
+#        sizer_bottom.Add(self.alpha_slider, 0, wx.ALIGN_RIGHT, 0)
+#        sizer_main.Add(sizer_bottom, 0, wx.ALIGN_BOTTOM | wx.ALL | wx.EXPAND, 1)
+
+        if config.wx_minor < 1:
+            sizer_bottom.Add(self.alpha_slider, 0, wx.ALIGN_RIGHT, 0)
+            sizer_main.Add(sizer_bottom, 0, wx.ALIGN_BOTTOM | wx.ALL | wx.EXPAND, 1)
+        else:
+            sizer_bottom.Add(self.alpha_slider)
+            sizer_main.Add(sizer_bottom, 0, wx.ALL | wx.EXPAND, 1)
+
         self.SetSizer(sizer_main)
         self.Layout()
         self._restoreColWidth()
@@ -640,7 +648,11 @@ class Frame(wx.Frame):
             for value in out:
                 color = False
                 self.grid.SetCellValue(rowidx, colidx, str(value))
-                self.grid.SetCellAlignment(self.columns[colidx][2], rowidx, colidx)
+#                self.grid.SetCellAlignment(self.columns[colidx][2], rowidx, colidx)
+                if config.wx_minor < 1:
+                    self.grid.SetCellAlignment(self.columns[colidx][2], rowidx, colidx)
+                else:
+                    self.grid.SetCellAlignment(rowidx, colidx, self.columns[colidx][2], wx.ALIGN_CENTER)
                 if hl_blops and r[9] is not None and r[11] > 0:  # Highlight BLOPS chars
                     self.grid.SetCellTextColour(rowidx, colidx, self.hl1_colour)
                     color = True
