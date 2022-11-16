@@ -3,18 +3,18 @@
 # PySpy - A simple EVE Online character intel tool using CCP's ESI API
 
 <p align="left">
-  <a href=https://github.com/Eve-PySpy/PySpy/releases/latest>
-    <img alt="Current Version" src="https://img.shields.io/github/release/Eve-PySpy/pyspy.svg">
+  <a href=https://github.com/FreeSide88/PySpy/releases/latest>
+    <img alt="Current Version" src="https://img.shields.io/github/release/FreeSide88/pyspy.svg">
   </a>
-  <a href=https://github.com/Eve-PySpy/PySpy/releases/latest>
-    <img alt="Number of releases downloaded" src="https://img.shields.io/github/downloads/Eve-PySpy/PySpy/total.svg">
+  <a href=https://github.com/FreeSide88/PySpy/releases/latest>
+    <img alt="Number of releases downloaded" src="https://img.shields.io/github/downloads/FreeSide88/PySpy/total.svg">
   </a>
-  <a href=https://travis-ci.org/Eve-PySpy/PySpy.svg?branch=master>
-    <img alt="Build Status" src="https://travis-ci.org/Eve-PySpy/PySpy.svg?branch=master">
+  <a href=https://travis-ci.org/FreeSide88/PySpy.svg?branch=master>
+    <img alt="Build Status" src="https://travis-ci.org/FreeSide88/PySpy.svg?branch=master">
   </a>
 </p>
 
-**Download the latest release [here](https://github.com/Eve-PySpy/PySpy/releases/latest).**
+**Download the latest release [here](https://github.com/FreeSide88/PySpy/releases/latest).**
 
 ## Background
 
@@ -40,12 +40,12 @@ If you enjoy using PySpy and would like to show your appreciation, please feel f
 
 ### New Dark Mode
 <p align="center">
-  <img alt="PySpy in action" src="https://github.com/Eve-PySpy/PySpy/blob/master/assets/v0.4_dark_screenshot.png?raw=true">
+  <img alt="PySpy in action" src="https://github.com/FreeSide88/PySpy/blob/master/assets/v0.4_dark_screenshot.png?raw=true">
 </p>
 
 ### Traditional Normal Mode
 <p align="center">
-  <img alt="PySpy in action" src="https://github.com/Eve-PySpy/PySpy/blob/master/assets/v0.4_light_screenshot.png?raw=true">
+  <img alt="PySpy in action" src="https://github.com/FreeSide88/PySpy/blob/master/assets/v0.4_light_screenshot.png?raw=true">
 </p>
 
 * **Warning**: Displays reasons why a character might be highlighted
@@ -90,11 +90,11 @@ Furthermore PySpy can also highlight a character if he uses Black Ops and Heavy 
 
 ## Installation
 
-You can download the latest release for your operating system [here](https://github.com/Eve-PySpy/PySpy/releases/latest).
+You can download the latest release for your operating system [here](https://github.com/FreeSide88/PySpy/releases/latest).
 
 PySpy comes as a single-file executable both in Windows and macOS. On both platforms, you can run PySpy from any folder location you like.
 
-On Linux, you can run PySpy like any other Python3 script. PySpy was developed on Python 3.6.5 but should run on any other Python3 version, so long as you install the required packages listed in [requirements.txt](https://github.com/Eve-PySpy/PySpy/blob/master/requirements.txt).
+On Linux, you can run PySpy like any other Python3 script. PySpy was developed on Python 3.6.5 but should run on any other Python3 version, so long as you install the required packages listed in [requirements.txt](https://github.com/FreeSide88/PySpy/blob/master/requirements.txt).
 
 If you want to build PySpy into an executable yourself, then the pyinstaller spec file is provided, you will likely need to provide the api-ms-core dlls that python requires. details of this can be found [here](https://github.com/pyinstaller/pyinstaller/issues/4047#issuecomment-460869714). You will know you need them if pyinstaller complains about missing them when run.
 
@@ -116,7 +116,7 @@ Below is a non-exhaustive list of additional features I plan to add to PySpy as 
 * **Highlight New Pilots**: Highlight any pilots that have entered system since last PySpy run.
 * **Improved GUI**: The current GUI is very basic and while it works, I do appreciate that it is not ideal for people who cannot use it on a second screen but actually have to overlay it on-top of their EVE client.
 
-Please feel free to add a [feature request](https://github.com/Eve-PySpy/PySpy/issues/new?template=pyspy-feature-request.md) for any improvements you would like to see in future releases.
+Please feel free to add a [feature request](https://github.com/FreeSide88/PySpy/issues/new?template=pyspy-feature-request.md) for any improvements you would like to see in future releases.
 
 ## Bug Reporting
 
