@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2022 - FreeSide88 (https://github.com/FreeSide88)
 Copyright (c) 2018 - White Russsian (https://github.com/WhiteRusssian)
 
 All rights reserved.

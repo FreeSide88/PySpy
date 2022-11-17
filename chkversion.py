@@ -27,7 +27,7 @@ def chk_github_update():
     last_check = config.OPTIONS_OBJECT.Get("last_update_check", 0)
     if last_check == 0 or last_check < datetime.date.today():
         # Get latest version available on GitHub
-        GIT_URL = "https://api.github.com/repos/Eve-PySpy/PySpy/releases/latest"
+        GIT_URL = "https://api.github.com/repos/FreeSide88/PySpy/releases/latest"
         try:
             # verify=False to avoid certificate errors. This is not critical.
             latest_ver = requests.get(GIT_URL, verify=False).json()["tag_name"]
