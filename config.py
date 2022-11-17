@@ -1,7 +1,8 @@
 # !/usr/local/bin/python3.6
 # MIT licensed
+# Copyright (c) 2022 FreeSide88
 # Copyright (c) 2018 White Russsian
-# Github: <https://github.com/Eve-PySpy/PySpy>**********************
+# Github: <https://github.com/FreeSide88/PySpy>**********************
 ''' Define a few paths and constants used throughout other modules.'''
 # **********************************************************************
 import logging.config

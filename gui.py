@@ -1,7 +1,8 @@
 # !/usr/local/bin/python3.6
 # MIT licensed
+# Copyright (c) 2022 FreeSide88
 # Copyright (c) 2018 White Russsian
-# Github: <https://github.com/Eve-PySpy/PySpy>**********************
+# Github: <https://github.com/FreeSide88/PySpy>**********************
 '''Simple wxpython GUI with 1 frame, using persistent properties.'''
 # **********************************************************************
 import datetime
@@ -974,7 +975,7 @@ class Frame(wx.Frame):
             )
         if msgbox == wx.YES:
             webbrowser.open_new_tab(
-                "https://github.com/Eve-PySpy/PySpy/releases/latest"
+                "https://github.com/FreeSide88/PySpy/releases/latest"
                 )
         self.ToggleWindowStyle(wx.STAY_ON_TOP)
 
